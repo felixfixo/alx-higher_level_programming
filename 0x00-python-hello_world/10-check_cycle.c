@@ -29,4 +29,6 @@ if (tortoise == hare)
 return (1);
 }
 }
+return (0);
+}
 	
