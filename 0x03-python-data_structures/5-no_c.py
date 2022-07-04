@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 def no_c(my_string):
     counts = my_string.count('c')
     new_string = list(my_string)
