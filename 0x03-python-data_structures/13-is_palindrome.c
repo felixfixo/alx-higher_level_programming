@@ -12,32 +12,33 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *temp = *head;
-	int size = sizeof(int);
-	int i = 1;
-	int left = 0;
-	int right = i - 1;
-	int *arr = malloc(100000 * sizeof(int));
+	listint_t *node;
+	int values[9999], i = 0, c = 0;
 
-	arr[0] = (*head)->n;
-
-	if (*head == NULL)
+	if ((!*head) || (!head))
+	{
 		return (1);
-
-	temp = temp->next;
-
-	while (temp != NULL)
-	{
-		size += sizeof(int);
-		arr = realloc(arr, size);
-		arr[i] = temp->n;
-		i++;
-		temp = temp->next;
 	}
-	for (; left < right; left++, right--)
+	node = *head;
+	if (!node->next)
 	{
-		if (arr[left] != arr[right])
+		return (1);
+	}
+	while (node)
+	{
+		values[i] = node->n;
+		node = node->next;
+		i++;
+	}
+	i--;
+	while (i >= 0 && c <= i)
+	{
+		if (values[i] != values[c])
+		{
 			return (0);
+		}
+		i--;
+		c++;
 	}
 	return (1);
 }
